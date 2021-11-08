@@ -164,6 +164,9 @@ object Deps {
         val slf4jApi = Dep.from("org.slf4j:slf4j-api:${slf4j_VERSION}")
             .also { APPLIED_DEPS[Logging.javaClass.simpleName] = it }
 
+        val kotlinLogging_VERSION = "2.0.11"
+        val kotlinLogging = Dep.from("io.github.microutils:kotlin-logging:${kotlinLogging_VERSION}")
+            .also { APPLIED_DEPS[Logging.javaClass.simpleName] = it }
     }
 
     object Eclipse {
