@@ -247,6 +247,16 @@ object Deps {
                 .also { APPLIED_DEPS[KOTLINXJSON.javaClass.simpleName] = it }
             val kotlinxYaml = Dep.from("net.mamoe.yamlkt:yamlkt:${yamlVersion}")
         }
+        object KOTLINXYAML {
+            val VERSION = "0.36.0"
+            val kotlinxJson = Dep.from("com.charleskorn.kaml:kaml:$VERSION")
+                .also { APPLIED_DEPS[KOTLINXYAML.javaClass.simpleName] = it }
+        }
+        object KOTLINXYAMLKT {
+            val VERSION = "0.10.2"
+            val kotlinxJson = Dep.from("net.mamoe.yamlkt:yamlkt:$VERSION")
+                .also { APPLIED_DEPS[KOTLINXYAMLKT.javaClass.simpleName] = it }
+        }
         object CLIKT {
             val VERSION = "3.2.0"
             val clikt = Dep.from("com.github.ajalt.clikt:clikt:$VERSION")
