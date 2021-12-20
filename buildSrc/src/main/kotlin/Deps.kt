@@ -64,6 +64,7 @@ object Deps {
         val Logback = Dep.from("ch.qos.logback:logback-classic:1.2.9").also { VERSION_Logback = it.version ; it.add() }
         var VERSION_Slf4j = UNSPECIFIED
         val Slf4jApi = Dep.from("org.slf4j:slf4j-api:1.7.32").also { VERSION_Slf4j = it.version ; it.add() }
+        val KotlinLogging = Dep.from("io.github.microutils:kotlin-logging:2.1.21").also { it.add() }
 
     }
 
@@ -86,7 +87,7 @@ object Deps {
         val Okhttp = Dep.from("com.squareup.okhttp3:okhttp:4.9.3").also { it.add() }
         val Retrofit = Dep.from("com.squareup.retrofit2:retrofit:2.9.0").also { it.add() }
         val Moshi = Dep.from("com.squareup.moshi:moshi-kotlin:1.13.0").also { it.add() }
-        val Okio = Dep.from("com.squareup.okio:okio:2.10.0").also { it.add() }
+        val Okio = Dep.from("com.squareup.okio:okio:3.0.0").also { it.add() }
         var VERSION_SQLDelight = UNSPECIFIED
         val SQLDelight = Dep.from("com.squareup.sqldelight:gradle-plugin:1.5.3").also { VERSION_SQLDelight = it.version ; it.add() }
         val androidDriver = Dep.from("com.squareup.sqldelight:android-driver:$VERSION_SQLDelight")
