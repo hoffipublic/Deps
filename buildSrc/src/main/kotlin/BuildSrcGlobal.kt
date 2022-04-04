@@ -5,25 +5,26 @@ import org.gradle.jvm.toolchain.JvmVendorSpec
 import kotlin.reflect.full.declaredMemberProperties
 
 object BuildSrcGlobal {
-    const val ESCAPE = '\u001B'
+    val ESCAPE = '\u001B'
     val JavaLanguageVersion = 17
     val VersionKotlin = "1.6.10"
     val jvmVendor = JvmVendorSpec.ADOPTOPENJDK
 
     fun dump() {
         val clazz = BuildSrcGlobal::class
-        println("buildSrc/src/main/kotlin/BuildSrscGlogal.kt (")
+        println("buildSrc/src/main/kotlin/BuildSrcGlobal.kt {")
         clazz.declaredMemberProperties.sortedBy { it.name }.forEach {
             val value = it.get(BuildSrcGlobal)
             var type = ""
             val q = when(value) {
                 is String -> "\""
+                is Char -> "'"
                 is Int, is Long, is Short, is Float, is Double, is Boolean -> ""
                 else -> { type = "[${it.returnType}]" ; "" }
             }
-            println(String.format("  %-19s = $q%s$q", it.name, value, it.returnType))
+            println(String.format("  %-19s = $q%s$q %s", it.name, value, type))
         }
-        println(")")
+        println("}")
     }
 
     enum class ConsoleColor(baseCode: Int) {
@@ -54,7 +55,7 @@ object BuildSrcGlobal {
     }
 
     internal object Color {
-        const val RESET = "$ESCAPE[0m"
+        val RESET = "$ESCAPE[0m"
 
         fun foreground(string: String, color: ConsoleColor) = color(string, color.foreground)
         fun background(string: String, color: ConsoleColor) = color(string, color.background)
