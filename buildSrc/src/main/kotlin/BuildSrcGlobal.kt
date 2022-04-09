@@ -1,14 +1,13 @@
 import org.gradle.api.Project
 import org.gradle.configurationcache.extensions.serviceOf
 import org.gradle.internal.logging.text.StyledTextOutput
-import org.gradle.jvm.toolchain.JvmVendorSpec
 import kotlin.reflect.full.declaredMemberProperties
 
 object BuildSrcGlobal {
     val ESCAPE = '\u001B'
-    val JavaLanguageVersion = 17
-    val VersionKotlin = "1.6.10"
-    val jvmVendor = JvmVendorSpec.ADOPTOPENJDK
+    val VersionKotlin = "1.6.20"
+    val JavaLanguageVersion = org.gradle.jvm.toolchain.JavaLanguageVersion.of(17)
+    val jvmVendor = org.gradle.jvm.toolchain.JvmVendorSpec.ADOPTIUM
 
     fun dump() {
         val clazz = BuildSrcGlobal::class

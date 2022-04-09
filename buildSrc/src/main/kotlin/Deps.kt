@@ -33,9 +33,9 @@ object Deps {
     val Arrow            = Dep.from("io.arrow-kt:arrow-core:1.0.1").also { it.add(CORE_GROUP) }
     val Clikt            = Dep.from("com.github.ajalt.clikt:clikt:3.4.0").also { it.add(CONSOLE_GROUP) }
     // __LATEST_COMPOSE_RELEASE_VERSION__ https://github.com/JetBrains/compose-jb/releases
-    val Compose          = Dep.from("org.jetbrains.compose:compose-gradle-plugin:1.0.1", repo = JETBRAINSREPO).also { it.add(JETBRAINS_GROUP) }
+    val Compose          = Dep.from("org.jetbrains.compose:compose-gradle-plugin:1.1.1", repo = JETBRAINSREPO).also { it.add(JETBRAINS_GROUP) }
     val Exposed          = Dep.from("org.jetbrains.exposed:exposed-core:0.37.3").also { it.add(JETBRAINS_GROUP) }
-    val H2               = Dep.from("com.h2database:h2:2.0.210").also { it.add(DB_GROUP) }
+    val H2               = Dep.from("com.h2database:h2:2.1.210").also { it.add(DB_GROUP) }
     val jsoup            = Dep.from("org.jsoup:jsoup:1.14.3").also { it.add(WEB_GROUP) }
     val Khttp            = Dep.from("khttp:khttp:1.0.0", JCENTERREPO).also { it.add(WEB_GROUP) }
     val Koodies          = Dep.from("com.bkahlert.koodies:koodies:1.9.7").also { it.add(CONSOLE_GROUP) }
@@ -47,7 +47,7 @@ object Deps {
     val PoiOoxml         = Dep.from("org.apache.poi:poi-ooxml:${Poi.versionNonAdding}")
     val Postgresql       = Dep.from("org.postgresql:postgresql:42.3.3", versionRegex = "${THREEDIGITSs}\\.jre\\d*\$").also { it.add(DB_GROUP) }
     val Slf4jApi         = Dep.from("org.slf4j:slf4j-api:1.7.36").also { it.add(LOGGING_GROUP) }
-    val Sslcontext       = Dep.from("io.github.hakky54:sslcontext-kickstart:7.3.0").also { it.add(WEB_GROUP) }
+    val Sslcontext       = Dep.from("io.github.hakky54:sslcontext-kickstart:7.4.0").also { it.add(WEB_GROUP) }
 
     // SERIALIZATION
     val KotlinxJson      = Dep.from("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2").also { it.add(SERIALIZATION_GROUP) }
