@@ -1,3 +1,4 @@
+import org.gradle.api.GradleException
 import org.gradle.api.Project
 import org.gradle.configurationcache.extensions.serviceOf
 import org.gradle.internal.logging.text.StyledTextOutput
@@ -8,6 +9,14 @@ object BuildSrcGlobal {
     val VersionKotlin = "1.6.20"
     val JavaLanguageVersion = org.gradle.jvm.toolchain.JavaLanguageVersion.of(17)
     val jvmVendor = org.gradle.jvm.toolchain.JvmVendorSpec.ADOPTIUM
+    var posixHost = false
+    enum class HOSTOS { WINDOWS, MAC, LINUX }
+    val hostOS = with(System.getProperty("os.name").toLowerCase()) { when  {
+        indexOf("win") >= 0 -> HOSTOS.WINDOWS
+        indexOf("mac") >= 0 -> { posixHost = true ; HOSTOS.MAC }
+        indexOf("nix") >= 0 || indexOf("nux") >= 0 || indexOf("aix") > 0 -> { posixHost = true ; HOSTOS.LINUX }
+        else -> throw GradleException("Host OS is not supported in Kotlin/Native: '${System.getProperty("os.name")}'")
+    }}
 
     fun dump() {
         val clazz = BuildSrcGlobal::class

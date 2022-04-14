@@ -56,14 +56,15 @@ object Deps {
     val Snakeyaml        = Dep.from("org.yaml:snakeyaml:1.30").also { it.add(SERIALIZATION_GROUP) }
 
     // SQUAREUP
+    val kotlinPoet       = Dep.from("com.squareup:kotlinpoet:1.11.0").also { it.add(SQUAREUP_GROUP) }
     val Okhttp           = Dep.from("com.squareup.okhttp3:okhttp:4.9.3").also { it.add(SQUAREUP_GROUP) }
-    val Retrofit         = Dep.from("com.squareup.retrofit2:retrofit:2.9.0").also { it.add(SQUAREUP_GROUP) }
     val Moshi            = Dep.from("com.squareup.moshi:moshi-kotlin:1.13.0").also { it.add(SQUAREUP_GROUP) }
     val Okio             = Dep.from("com.squareup.okio:okio:3.0.0").also { it.add(SQUAREUP_GROUP) }
+    val Retrofit         = Dep.from("com.squareup.retrofit2:retrofit:2.9.0").also { it.add(SQUAREUP_GROUP) }
     val SQLDelight       = Dep.from("com.squareup.sqldelight:gradle-plugin:1.5.3").also { it.add(SQUAREUP_GROUP) }
     val androidDriver    = Dep.from("com.squareup.sqldelight:android-driver:${SQLDelight.versionNonAdding}")
-    val sqliteDriver     = Dep.from("com.squareup.sqldelight:sqlite-driver:${SQLDelight.versionNonAdding}")
     val nativeDriver     = Dep.from("com.squareup.sqldelight:native-driver:${SQLDelight.versionNonAdding}")
+    val sqliteDriver     = Dep.from("com.squareup.sqldelight:sqlite-driver:${SQLDelight.versionNonAdding}")
 
     // TESTING
     val Junit = Dep.from("org.junit.jupiter:junit-jupiter-api:5.8.2").also { it.add(TESTING_GROUP) }
