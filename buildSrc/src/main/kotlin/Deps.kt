@@ -10,6 +10,7 @@ const val CONSOLE_GROUP = "CONSOLE"
 const val CORE_GROUP = "CORE"
 const val DB_GROUP = "DB"
 const val LOGGING_GROUP = "LOGGING"
+const val MPP_GROUP = "MULTIPLATFORM"
 const val JETBRAINS_GROUP = "JETBRAINS"
 const val SERIALIZATION_GROUP = "SERIALIZATION"
 const val SQUAREUP_GROUP = "SQUAREUP"
@@ -48,6 +49,7 @@ object Deps {
     val Postgresql       = Dep.from("org.postgresql:postgresql:42.4.0", versionRegex = "${THREEDIGITSs}\\.jre\\d*\$").also { it.add(DB_GROUP) }
     val Slf4jApi         = Dep.from("org.slf4j:slf4j-api:1.7.36").also { it.add(LOGGING_GROUP) }
     val Sslcontext       = Dep.from("io.github.hakky54:sslcontext-kickstart:7.4.3").also { it.add(WEB_GROUP) }
+    val UUID             = Dep.from("com.benasher44:uuid:0.4.1").also { it.add(MPP_GROUP) }
 
     // SERIALIZATION
     val KotlinxJson      = Dep.from("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3").also { it.add(SERIALIZATION_GROUP) }
