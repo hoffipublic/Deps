@@ -21,7 +21,7 @@ object PluginDeps {
     val ALL = mutableSetOf<DepPlugin>()
     val USED = mutableSetOf<DepPlugin>()
 
-    val PluginMicronaut = DepPlugin("Micronaut", "io.micronaut.application", version = "3.4.1").also { it.add() }
+    val PluginMicronaut = DepPlugin("Micronaut", "io.micronaut.application", version = "3.5.0").also { it.add() }
     val PluginShadow = DepPlugin("Shadow", "com.github.johnrengelman.shadow", version = "7.1.2").also { it.add() }
 
 }
@@ -37,31 +37,31 @@ object Deps {
     val Compose          = Dep.from("org.jetbrains.compose:compose-gradle-plugin:1.1.1", repo = JETBRAINSREPO).also { it.add(JETBRAINS_GROUP) }
     val Exposed          = Dep.from("org.jetbrains.exposed:exposed-core:0.38.2").also { it.add(JETBRAINS_GROUP) }
     val H2               = Dep.from("com.h2database:h2:2.1.214").also { it.add(DB_GROUP) }
-    val jsoup            = Dep.from("org.jsoup:jsoup:1.15.1").also { it.add(WEB_GROUP) }
+    val jsoup            = Dep.from("org.jsoup:jsoup:1.15.2").also { it.add(WEB_GROUP) }
     val Khttp            = Dep.from("khttp:khttp:1.0.0", JCENTERREPO).also { it.add(WEB_GROUP) }
     val Koodies          = Dep.from("com.bkahlert.koodies:koodies:1.9.7").also { it.add(CONSOLE_GROUP) }
     val KotlinLogging    = Dep.from("io.github.microutils:kotlin-logging:2.1.23").also { it.add(LOGGING_GROUP) }
-    val KotlinxDatetime  = Dep.from("org.jetbrains.kotlinx:kotlinx-datetime:0.3.3").also { it.add(JETBRAINS_GROUP) }
-    val Ktor             = Dep.from("io.ktor:ktor-server-core:2.0.2").also { it.add(WEB_GROUP) }
+    val KotlinxDatetime  = Dep.from("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0").also { it.add(JETBRAINS_GROUP) }
+    val Ktor             = Dep.from("io.ktor:ktor-server-core:2.0.3").also { it.add(WEB_GROUP) }
     val Logback          = Dep.from("ch.qos.logback:logback-classic:1.2.11").also { it.add(LOGGING_GROUP) }
     val Poi              = Dep.from("org.apache.poi:poi:5.2.2").also { it.add(APACHE_GROUP) }
     val PoiOoxml         = Dep.from("org.apache.poi:poi-ooxml:${Poi.versionNonAdding}")
     val Postgresql       = Dep.from("org.postgresql:postgresql:42.4.0", versionRegex = "${THREEDIGITSs}\\.jre\\d*\$").also { it.add(DB_GROUP) }
     val Slf4jApi         = Dep.from("org.slf4j:slf4j-api:1.7.36").also { it.add(LOGGING_GROUP) }
-    val Sslcontext       = Dep.from("io.github.hakky54:sslcontext-kickstart:7.4.3").also { it.add(WEB_GROUP) }
-    val UUID             = Dep.from("com.benasher44:uuid:0.4.1").also { it.add(MPP_GROUP) }
+    val Sslcontext       = Dep.from("io.github.hakky54:sslcontext-kickstart:7.4.5").also { it.add(WEB_GROUP) }
+    val UUID             = Dep.from("com.benasher44:uuid:0.5.0").also { it.add(MPP_GROUP) }
 
     // SERIALIZATION
     val KotlinxJson      = Dep.from("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3").also { it.add(SERIALIZATION_GROUP) }
     val KotlinxYaml      = Dep.from("net.mamoe.yamlkt:yamlkt:0.12.0").also { it.add(SERIALIZATION_GROUP) }
-    val KotlinxKaml      = Dep.from("com.charleskorn.kaml:kaml:0.45.0").also { it.add(SERIALIZATION_GROUP) }
+    val KotlinxKaml      = Dep.from("com.charleskorn.kaml:kaml:0.46.0").also { it.add(SERIALIZATION_GROUP) }
     val Snakeyaml        = Dep.from("org.yaml:snakeyaml:1.30").also { it.add(SERIALIZATION_GROUP) }
 
     // SQUAREUP
     val kotlinPoet       = Dep.from("com.squareup:kotlinpoet:1.12.0").also { it.add(SQUAREUP_GROUP) }
     val Okhttp           = Dep.from("com.squareup.okhttp3:okhttp:4.10.0").also { it.add(SQUAREUP_GROUP) }
     val Moshi            = Dep.from("com.squareup.moshi:moshi-kotlin:1.13.0").also { it.add(SQUAREUP_GROUP) }
-    val Okio             = Dep.from("com.squareup.okio:okio:3.1.0").also { it.add(SQUAREUP_GROUP) }
+    val Okio             = Dep.from("com.squareup.okio:okio:3.2.0").also { it.add(SQUAREUP_GROUP) }
     val Retrofit         = Dep.from("com.squareup.retrofit2:retrofit:2.9.0").also { it.add(SQUAREUP_GROUP) }
     val SQLDelight       = Dep.from("com.squareup.sqldelight:gradle-plugin:1.5.3").also { it.add(SQUAREUP_GROUP) }
     val androidDriver    = Dep.from("com.squareup.sqldelight:android-driver:${SQLDelight.versionNonAdding}")
@@ -74,7 +74,7 @@ object Deps {
     val KotlinTestCommon = Dep.from("org.jetbrains.kotlin:kotlin-test-common:${BuildSrcGlobal.VersionKotlin}")
     val KotlinTestJunit = Dep.from("org.jetbrains.kotlin:kotlin-test-junit:${BuildSrcGlobal.VersionKotlin}")
     val KotlinTestAnnotationsCommon = Dep.from("org.jetbrains.kotlin:kotlin-test-annotations-common:${BuildSrcGlobal.VersionKotlin}")
-    val Kotest = Dep.from("io.kotest:kotest-runner-junit5-jvm:5.3.1").also { it.add(TESTING_GROUP) }
+    val Kotest = Dep.from("io.kotest:kotest-runner-junit5-jvm:5.3.2").also { it.add(TESTING_GROUP) }
     val hamcrestLibrary = Dep.from("org.hamcrest:hamcrest-library:2.2").also { it.add(TESTING_GROUP) }
 }
 
