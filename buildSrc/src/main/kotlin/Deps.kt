@@ -40,9 +40,14 @@ object Deps {
     val jsoup            = Dep.from("org.jsoup:jsoup:1.15.2").also { it.add(WEB_GROUP) }
     val Khttp            = Dep.from("khttp:khttp:1.0.0", JCENTERREPO).also { it.add(WEB_GROUP) }
     val Koodies          = Dep.from("com.bkahlert.koodies:koodies:1.9.7").also { it.add(CONSOLE_GROUP) }
+    val KotlinCoroutines = Dep.from("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
     val KotlinLogging    = Dep.from("io.github.microutils:kotlin-logging:2.1.23").also { it.add(LOGGING_GROUP) }
     val KotlinxDatetime  = Dep.from("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0").also { it.add(JETBRAINS_GROUP) }
-    val Ktor             = Dep.from("io.ktor:ktor-server-core:2.0.3").also { it.add(WEB_GROUP) }
+    val KtorServer       = Dep.from("io.ktor:ktor-server-core:2.0.3").also { it.add(WEB_GROUP) }
+    val KtorClient       = Dep.from("io.ktor:ktor-client-core:${KtorServer.versionNonAdding}")
+    val KtorClientCIO    = Dep.from("io.ktor:ktor-client-cio:${KtorServer.versionNonAdding}")
+    val KtorClientOkio   = Dep.from("io.ktor:ktor-client-okhttp:${KtorServer.versionNonAdding}")
+    val KtorClientCN     = Dep.from("io.ktor:ktor-client-content-negotiation:${KtorServer.versionNonAdding}")
     val Logback          = Dep.from("ch.qos.logback:logback-classic:1.2.11").also { it.add(LOGGING_GROUP) }
     val Poi              = Dep.from("org.apache.poi:poi:5.2.2").also { it.add(APACHE_GROUP) }
     val PoiOoxml         = Dep.from("org.apache.poi:poi-ooxml:${Poi.versionNonAdding}")
