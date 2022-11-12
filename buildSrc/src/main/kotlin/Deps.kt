@@ -21,7 +21,7 @@ object PluginDeps {
     val ALL = mutableSetOf<DepPlugin>()
     val USED = mutableSetOf<DepPlugin>()
 
-    val PluginMicronaut = DepPlugin("Micronaut", "io.micronaut.application", version = "3.6.3").also { it.add() }
+    val PluginMicronaut = DepPlugin("Micronaut", "io.micronaut.application", version = "3.6.4").also { it.add() }
     val PluginShadow = DepPlugin("Shadow", "com.github.johnrengelman.shadow", version = "7.1.2").also { it.add() }
 
 }
@@ -57,7 +57,7 @@ object Deps {
     val Resilience4j     = Dep.from("io.github.resilience4j:resilience4j-core:1.7.1").also { it.add(WEB_GROUP) }
     val Slf4jApi         = Dep.from("org.slf4j:slf4j-api:2.0.3").also { it.add(LOGGING_GROUP) }
     val Sslcontext       = Dep.from("io.github.hakky54:sslcontext-kickstart:7.4.8").also { it.add(WEB_GROUP) }
-    val UUID             = Dep.from("com.benasher44:uuid:0.5.0").also { it.add(MPP_GROUP) }
+    val UUID             = Dep.from("com.benasher44:uuid:0.6.0").also { it.add(MPP_GROUP) }
 
     // SERIALIZATION
     val KotlinxJson      = Dep.from("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1").also { it.add(SERIALIZATION_GROUP) }
