@@ -41,9 +41,9 @@ object Deps {
     val Kodein           = Dep.from("org.kodein.di:kodein-di:7.18.0").also { it.add(CORE_GROUP) }
     val Koodies          = Dep.from("com.bkahlert.koodies:koodies:1.9.7").also { it.add(CONSOLE_GROUP) }
     val KotlinCoroutines = Dep.from("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
-    val KotlinLogging    = Dep.from("io.github.microutils:kotlin-logging:3.0.4").also { it.add(LOGGING_GROUP) }
+    val KotlinLogging    = Dep.from("io.github.microutils:kotlin-logging:3.0.5").also { it.add(LOGGING_GROUP) }
     val KotlinxDatetime  = Dep.from("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0").also { it.add(JETBRAINS_GROUP) }
-    val KtorServer       = Dep.from("io.ktor:ktor-server-core:2.2.2").also { it.add(WEB_GROUP) }
+    val KtorServer       = Dep.from("io.ktor:ktor-server-core:2.2.3").also { it.add(WEB_GROUP) }
     val KtorClient       = Dep.from("io.ktor:ktor-client-core:${KtorServer.versionNonAdding}")
     val KtorClientCIO    = Dep.from("io.ktor:ktor-client-cio:${KtorServer.versionNonAdding}")
     val KtorClientOkio   = Dep.from("io.ktor:ktor-client-okhttp:${KtorServer.versionNonAdding}")
@@ -51,8 +51,8 @@ object Deps {
     val Logback          = Dep.from("ch.qos.logback:logback-classic:1.4.5").also { it.add(LOGGING_GROUP) }
     val Poi              = Dep.from("org.apache.poi:poi:5.2.3").also { it.add(APACHE_GROUP) }
     val PoiOoxml         = Dep.from("org.apache.poi:poi-ooxml:${Poi.versionNonAdding}")
-    //val Postgresql       = Dep.from("org.postgresql:postgresql:42.5.0", versionRegex = "${THREEDIGITSs}\\.jre\\d*\$").also { it.add(DB_GROUP) }
-    val Postgresql       = Dep.from("org.postgresql:postgresql:42.5.1").also { it.add(DB_GROUP) }
+    //val Postgresql       = Dep.from("org.postgresql:postgresql:42.5.2", versionRegex = "${THREEDIGITSs}\\.jre\\d*\$").also { it.add(DB_GROUP) }
+    val Postgresql       = Dep.from("org.postgresql:postgresql:42.5.2").also { it.add(DB_GROUP) }
     val Rabbit           = Dep.from("com.rabbitmq:amqp-client:5.16.0").also { it.add(WEB_GROUP) }
     val Resilience4j     = Dep.from("io.github.resilience4j:resilience4j-core:2.0.2").also { it.add(WEB_GROUP) }
     val Slf4jApi         = Dep.from("org.slf4j:slf4j-api:2.0.6").also { it.add(LOGGING_GROUP) }
