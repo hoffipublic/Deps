@@ -32,7 +32,7 @@ object DepVersions {
 
         Dep.from("com.h2database:h2:2.1.214", GROUP_DB),
         //Dep.from("org.postgresql:postgresql:42.5.2", GROUP_DB, versionRegex = "${THREEDIGITSs}\\.jre\\d*\$"),
-        Dep.from("org.postgresql:postgresql:42.5.2", GROUP_DB),
+        Dep.from("org.postgresql:postgresql:42.5.3", GROUP_DB),
 
         // __LATEST_COMPOSE_RELEASE_VERSION__ https://github.com/JetBrains/compose-jb/releases
         Dep.from("org.jetbrains.compose:compose-gradle-plugin:1.3.0", GROUP_JETBRAINS, repo = JETBRAINSREPO),
@@ -67,7 +67,7 @@ object DepVersions {
         Dep.from("org.jetbrains.kotlin:kotlin-test-common:${BuildSrcGlobal.VersionKotlin}"),
         Dep.from("org.jetbrains.kotlin:kotlin-test-junit:${BuildSrcGlobal.VersionKotlin}"),
         Dep.from("org.jetbrains.kotlin:kotlin-test-annotations-common:${BuildSrcGlobal.VersionKotlin}"),
-        Dep.from("io.kotest:kotest-runner-junit5:5.5.4", GROUP_TESTING),
+        Dep.from("io.kotest:kotest-runner-junit5:5.5.5", GROUP_TESTING),
         Dep.from("org.hamcrest:hamcrest-library:2.2", GROUP_TESTING),
 
         Dep.from("com.rabbitmq:amqp-client:5.16.0", GROUP_WEB),
