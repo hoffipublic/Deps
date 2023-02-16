@@ -24,30 +24,53 @@
  * If you _then_ add folders / files matching the above scope names
  * you can see more clearly which "area" of code in the folder structure you are just looking at the moment .
  */
-tasks.register("createIntellijScopeSentinels") {
+val createIntellijScopeSentinels = tasks.register("createIntellijScopeSentinels") {
     doLast {
-        project.subprojects.forEach { sub ->
-            sub.pluginManager.let() { when {
+        project.allprojects.forEach { prj ->
+            val suffix = if (prj.name == rootProject.name) {
+                "ROOT"
+            } else {
+                prj.name.toUpperCase()
+            }
+            prj.pluginManager.let { when {
                 it.hasPlugin("org.jetbrains.kotlin.jvm") -> {
-                    sub.sourceSets.forEach { ss: SourceSet ->
-                        val ssDir = File("src/${ss.name}")
+                    if (prj.name != rootProject.name) {
+                        val dir = mkdir("${prj.name}/01__$suffix")
+                        File(dir, ".gitkeep").createNewFile()
+                        File(prj.name, "ZZ__$suffix").createNewFile()
+                    }
+                    prj.sourceSets.forEach { ss: SourceSet ->
+                        val ssDir = if (prj.name == rootProject.name) {
+                            File("src/${ss.name}")
+                        } else {
+                            File("${prj.name}/src/${ss.name}")
+                        }
                         if (ssDir.exists()) {
-                            println("jvmSubProject: " + sub.name + " -> " + ssDir)
+                            val mName = ss.name.capitalize()
+                            val dir = mkdir("$ssDir/_src${mName}_$suffix")
+                            File(dir, ".gitkeep").createNewFile()
+                            File(ssDir, "ZZsrc${mName}_$suffix").createNewFile()
                         }
                     }
                 }
                 it.hasPlugin("org.jetbrains.kotlin.multiplatform") -> {
-                    var d = mkdir("${sub.name}/01__${sub.name.toUpperCase()}")
-                    File(d, ".gitkeep").createNewFile()
-                    File(sub.name, "ZZ__${sub.name.toUpperCase()}").createNewFile()
-                    sub.kotlin.sourceSets.forEach { ss: org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet ->
-                        val ssDir = File("${sub.name}/src/${ss.name}")
+                    if (prj.name != rootProject.name) {
+                        val dir = mkdir("${prj.name}/01__$suffix")
+                        File(dir, ".gitkeep").createNewFile()
+                        File(prj.name, "ZZ__$suffix").createNewFile()
+                    }
+                    prj.kotlin.sourceSets.forEach { ss: org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet ->
+                        val ssDir = if (prj.name == rootProject.name) {
+                            File("src/${ss.name}")
+                        } else {
+                            File("${prj.name}/src/${ss.name}")
+                        }
                         if (ssDir.exists()) {
                             if (ss.name.endsWith("Main")) {
-                                val mName = ss.name.removeSuffix("Main")
-                                d = mkdir("$ssDir/_src${mName.capitalize()}_${sub.name.toUpperCase()}")
-                                File(d, ".gitkeep").createNewFile()
-                                File(ssDir, "ZZsrc${mName.capitalize()}_${sub.name.toUpperCase()}").createNewFile()
+                                val mName = ss.name.removeSuffix("Main").capitalize()
+                                val dir = mkdir("$ssDir/_src${mName}_$suffix")
+                                File(dir, ".gitkeep").createNewFile()
+                                File(ssDir, "ZZsrc${mName}_$suffix").createNewFile()
                             }
                         }
                     }
