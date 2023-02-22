@@ -27,6 +27,9 @@
 val createIntellijScopeSentinels = tasks.register("createIntellijScopeSentinels") {
     doLast {
         project.allprojects.forEach { prj ->
+            var relProjectDirString = prj.projectDir.toString().removePrefix(rootProject.projectDir.toString())
+            if (relProjectDirString.isBlank()) { relProjectDirString = "ROOT" } else { relProjectDirString = relProjectDirString.removePrefix("/") }
+            println("  in project: $relProjectDirString ...")
             val suffix = if (prj.name == rootProject.name) {
                 "ROOT"
             } else {
@@ -35,15 +38,15 @@ val createIntellijScopeSentinels = tasks.register("createIntellijScopeSentinels"
             prj.pluginManager.let { when {
                 it.hasPlugin("org.jetbrains.kotlin.jvm") -> {
                     if (prj.name != rootProject.name) {
-                        val dir = mkdir("${prj.name}/01__$suffix")
+                        val dir = mkdir("${prj.projectDir}/01__$suffix")
                         File(dir, ".gitkeep").createNewFile()
-                        File(prj.name, "ZZ__$suffix").createNewFile()
+                        File(prj.projectDir, "ZZ__$suffix").createNewFile()
                     }
                     prj.sourceSets.forEach { ss: SourceSet ->
                         val ssDir = if (prj.name == rootProject.name) {
                             File("src/${ss.name}")
                         } else {
-                            File("${prj.name}/src/${ss.name}")
+                            File("${prj.projectDir}/src/${ss.name}")
                         }
                         if (ssDir.exists()) {
                             val mName = ss.name.capitalize()
@@ -55,19 +58,19 @@ val createIntellijScopeSentinels = tasks.register("createIntellijScopeSentinels"
                 }
                 it.hasPlugin("org.jetbrains.kotlin.multiplatform") -> {
                     if (prj.name != rootProject.name) {
-                        val dir = mkdir("${prj.name}/01__$suffix")
+                        val dir = mkdir("${prj.projectDir}/01__$suffix")
                         File(dir, ".gitkeep").createNewFile()
-                        File(prj.name, "ZZ__$suffix").createNewFile()
+                        File(prj.projectDir, "ZZ__$suffix").createNewFile()
                     }
-                    prj.kotlin.sourceSets.forEach { ss: org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet ->
+                    prj.kotlin.sourceSets.forEach { sourceSet ->
                         val ssDir = if (prj.name == rootProject.name) {
-                            File("src/${ss.name}")
+                            File("src/${sourceSet.name}")
                         } else {
-                            File("${prj.name}/src/${ss.name}")
+                            File("${prj.projectDir}/src/${sourceSet.name}")
                         }
                         if (ssDir.exists()) {
-                            if (ss.name.endsWith("Main")) {
-                                val mName = ss.name.removeSuffix("Main").capitalize()
+                            if (sourceSet.name.endsWith("Main")) {
+                                val mName = sourceSet.name.removeSuffix("Main").capitalize()
                                 val dir = mkdir("$ssDir/_src${mName}_$suffix")
                                 File(dir, ".gitkeep").createNewFile()
                                 File(ssDir, "ZZsrc${mName}_$suffix").createNewFile()
@@ -76,6 +79,7 @@ val createIntellijScopeSentinels = tasks.register("createIntellijScopeSentinels"
                     }
                 }
             }}
+            println("  in project: $relProjectDirString ok.")
         }
     }
 }

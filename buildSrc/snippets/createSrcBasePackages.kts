@@ -26,27 +26,31 @@
  */
 val createSrcBasePackages = tasks.register("createSrcBasePackages") {
     doLast {
-        project.subprojects.forEach { sub ->
-            val projectPackage: String by sub.extra
+        project.subprojects.forEach { prj ->
+            var relProjectDirString = prj.projectDir.toString().removePrefix(rootProject.projectDir.toString())
+            if (relProjectDirString.isBlank()) { relProjectDirString = "ROOT" } else { relProjectDirString = relProjectDirString.removePrefix("/") }
+            println("  in project: $relProjectDirString ...")
+            val projectPackage: String by prj.extra
             val projectPackageDirString = projectPackage.split('.').joinToString("/")
-            sub.pluginManager.let() { when {
+            prj.pluginManager.let() { when {
                 it.hasPlugin("org.jetbrains.kotlin.jvm") -> {
-                    sub.sourceSets.forEach { ss: SourceSet ->
-                        val ssDir = File("${sub.name}/src/${ss.name}/kotlin")
+                    prj.sourceSets.forEach { sourceSet ->
+                        val ssDir = File("${prj.projectDir}/src/${sourceSet.name}/kotlin")
                         if (ssDir.exists()) {
                             mkdir("$ssDir/$projectPackageDirString")
                         }
                     }
                 }
                 it.hasPlugin("org.jetbrains.kotlin.multiplatform") -> {
-                    sub.kotlin.sourceSets.forEach { ss: org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet ->
-                        val ssDir = File("${sub.name}/src/${ss.name}/kotlin")
+                    prj.kotlin.sourceSets.forEach { sourceSet ->
+                        val ssDir = File("${prj.projectDir}/src/${sourceSet.name}/kotlin")
                         if (ssDir.exists()) {
                             mkdir("$ssDir/$projectPackageDirString")
                         }
                     }
                 }
             }}
+            println("  in project: $relProjectDirString ok.")
         }
     }
 }
