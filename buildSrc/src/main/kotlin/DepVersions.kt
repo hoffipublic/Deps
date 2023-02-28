@@ -99,7 +99,7 @@ object DepVersionPlugins {
     val USED = mutableSetOf<DepPlugin>()
     val vSet = setOf<DepPlugin>(
         DepPlugin("micronaut", "io.micronaut.application", version = "3.7.3"),
-        DepPlugin("shadow", "com.github.johnrengelman.shadow", version = "8.1.0"),
+        DepPlugin("shadow", "com.github.johnrengelman.shadow", version = "7.1.2"),
     )
     fun v(pluginName: String): String {
         val pluginDep = vSet.firstOrNull { it.name == pluginName } ?: throw GradleException("unknown plugin (not in 'buildSrc/src/main/kotlin/DepVersions.kt'): \"$pluginName\" not in (${DepVersionPlugins.vSet.map { it.name }.joinToString()})")
