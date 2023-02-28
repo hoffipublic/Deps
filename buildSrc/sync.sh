@@ -19,7 +19,11 @@ for OFFSET in "${OFFSETS[@]}" ; do
       filename=${syncfilepath##*/}
       localfilepath=$SCRIPTDIR/$OFFSET/$filename
       localDisplay=$LOCALDISPLAYDIR/$OFFSET/$filename
-      if [[ ! -f $localfilepath ]]; then echo "$localDisplay doesn't exist" ; continue ; fi
+      if [[ ! -f $localfilepath ]]; then
+          echo -e "${colRed}${localDisplay#*/}${colReset} doesn't exist"
+          echo "    cp $SYNCDIR_display/$OFFSET/$filename buildSrc/$OFFSET/$filename"
+          continue
+      fi
       if cmp --silent $syncfilepath $localfilepath ; then
           echo -e "is ${colGreen}equal${colReset}: ${OFFSET}/${colBold}${filename}${colReset}";
       else
@@ -36,3 +40,7 @@ for OFFSET in "${OFFSETS[@]}" ; do
       fi
   done
 done
+if ! cmp --silent "$SYNCDIR_base/sync.sh" "$SCRIPTDIR/sync.sh" ; then
+    echo -e "${colRed}buildSrc/sync.sh itself differs!${colReset}"
+fi
+
