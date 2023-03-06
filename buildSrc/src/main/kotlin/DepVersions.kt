@@ -35,7 +35,7 @@ object DepVersions {
         Dep.from("org.postgresql:postgresql:42.5.4", GROUP_DB),
 
         // __LATEST_COMPOSE_RELEASE_VERSION__ https://github.com/JetBrains/compose-jb/releases
-        Dep.from("org.jetbrains.compose:compose-gradle-plugin:1.3.0", GROUP_JETBRAINS, repo = JETBRAINSREPO),
+        Dep.from("org.jetbrains.compose:compose-gradle-plugin:${BuildSrcGlobal.Compose.composePluginVersion}", GROUP_JETBRAINS, repo = JETBRAINSREPO),
         Dep.from("org.jetbrains.exposed:exposed-core:0.41.1", GROUP_JETBRAINS),
         Dep.from("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4", GROUP_JETBRAINS),
         Dep.from("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0", GROUP_JETBRAINS),
@@ -98,7 +98,7 @@ fun String.pluginVersion() = DepVersionPlugins.v(this)
 object DepVersionPlugins {
     val USED = mutableSetOf<DepPlugin>()
     val vSet = setOf<DepPlugin>(
-        DepPlugin("micronaut", "io.micronaut.application", version = "3.7.3"),
+        DepPlugin("micronaut", "io.micronaut.application", version = "3.7.4"),
         DepPlugin("shadow", "com.github.johnrengelman.shadow", version = "7.1.2"),
     )
     fun v(pluginName: String): String {

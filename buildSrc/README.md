@@ -9,7 +9,7 @@ in rootProject:
 group = "com.hoffi"
 version = "1.0-SNAPSHOT"
 val artifactName: String by extra { "${rootProject.name.toLowerCase()}-${project.name.toLowerCase()}" }
-val rootPackage: String by extra { "${rootProject.group}.${rootProject.name.toLowerCase()}" }
+val rootPackage: String by extra { "${rootProject.group}.${rootProject.name.replace("[-_]".toRegex(), "").toLowerCase()}" }
 val projectPackage: String by extra { rootPackage }
 val theMainClass: String by extra { "Main" }
 application {
