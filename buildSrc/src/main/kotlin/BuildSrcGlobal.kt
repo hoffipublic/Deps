@@ -8,8 +8,8 @@ object BuildSrcGlobal {
     val ESCAPE = '\u001B'
     val JavaLanguageVersion = org.gradle.jvm.toolchain.JavaLanguageVersion.of(17)
     val jdkVersion = JavaLanguageVersion.asInt()
-    val VersionKotlin = "1.8.10"
-    object Compose { val kotlinVersion = "1.8.0"; val composePluginVersion = "1.3.0" }
+    val VersionKotlin = "1.8.20"
+    object Compose { val kotlinVersion = VersionKotlin; val composePluginVersion = "1.4.0" }
     val jvmVendor = org.gradle.jvm.toolchain.JvmVendorSpec.ADOPTIUM
     var posixHost = false
     enum class HOSTOS { WINDOWS, MACOS, LINUX }
