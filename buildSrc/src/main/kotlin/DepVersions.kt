@@ -27,6 +27,7 @@ object DepVersions {
 
         Dep.from("io.arrow-kt:arrow-core:1.2.0-RC", GROUP_CORE),
         Dep.from("org.kodein.di:kodein-di:7.20.1", GROUP_CORE),
+        Dep.from("io.insert-koin:koin-core:3.4.0", GROUP_CORE),
 
         Dep.from("com.bkahlert.koodies:koodies:1.9.7", GROUP_CONSOLE),
         Dep.from("com.github.ajalt.clikt:clikt:3.5.2", GROUP_CONSOLE),
@@ -43,7 +44,7 @@ object DepVersions {
         Dep.from("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0-RC", GROUP_JETBRAINS),
 
         Dep.from("org.slf4j:slf4j-api:2.0.7", GROUP_LOGGING),
-        Dep.from("ch.qos.logback:logback-classic:1.4.6", GROUP_LOGGING),
+        Dep.from("ch.qos.logback:logback-classic:1.4.7", GROUP_LOGGING),
         Dep.from("co.touchlab:kermit:2.0.0-RC4", GROUP_LOGGING),
         Dep.from("io.github.microutils:kotlin-logging:3.0.5", GROUP_LOGGING),
 
@@ -70,13 +71,14 @@ object DepVersions {
         Dep.from("org.jetbrains.kotlin:kotlin-test-junit:${BuildSrcGlobal.VersionKotlin}"),
         Dep.from("org.jetbrains.kotlin:kotlin-test-annotations-common:${BuildSrcGlobal.VersionKotlin}"),
         Dep.from("io.kotest:kotest-runner-junit5:5.5.5", GROUP_TESTING),
+        Dep.from("io.kotest.extensions:kotest-extensions-koin:1.1.0", GROUP_TESTING),
         Dep.from("org.hamcrest:hamcrest-library:2.2", GROUP_TESTING),
 
         Dep.from("com.rabbitmq:amqp-client:5.17.0", GROUP_WEB),
         Dep.from("io.github.hakky54:sslcontext-kickstart:7.4.11", GROUP_WEB),
         Dep.from("io.github.resilience4j:resilience4j-core:2.0.2", GROUP_WEB),
-        Dep.from("io.ktor:ktor-server-core:2.2.4", GROUP_WEB),
-        Dep.from("io.ktor:ktor-client-core:2.2.4", GROUP_WEB),
+        Dep.from("io.ktor:ktor-server-core:2.3.0", GROUP_WEB),
+        Dep.from("io.ktor:ktor-client-core:2.3.0", GROUP_WEB),
         Dep.from("org.jsoup:jsoup:1.15.4", GROUP_WEB),
 
         Dep.from("androidx.appcompat:appcompat:1.6.1", GROUP_COMPOSE, repo = GOOGLEREPO),
@@ -104,9 +106,9 @@ fun String.pluginVersion() = DepVersionPlugins.v(this)
 object DepVersionPlugins {
     val USED = mutableSetOf<DepPlugin>()
     val vSet = setOf<DepPlugin>(
-        DepPlugin("micronaut", "io.micronaut.application", version = "3.7.7"),
-        DepPlugin("shadow", "com.github.johnrengelman.shadow", version = "7.1.2"),
-        DepPlugin("android", "com.android.library", version = "7.4.2", interactiveUrl = "https://maven.google.com/web/index.html#"),
+        DepPlugin("micronaut", "io.micronaut.application", version = "3.7.8"),
+        DepPlugin("shadow", "com.github.johnrengelman.shadow", version = "8.1.1"),
+        DepPlugin("android", "com.android.library", version = "8.0.0", interactiveUrl = "https://maven.google.com/web/index.html#"),
     )
     fun v(pluginName: String): String {
         val pluginDep = vSet.firstOrNull { it.name == pluginName } ?: throw GradleException("unknown plugin (not in 'buildSrc/src/main/kotlin/DepVersions.kt'): \"$pluginName\" not in (${DepVersionPlugins.vSet.map { it.name }.joinToString()})")

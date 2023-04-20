@@ -33,7 +33,7 @@ val createIntellijScopeSentinels = tasks.register("createIntellijScopeSentinels"
             val suffix = if (prj.name == rootProject.name) {
                 "ROOT"
             } else {
-                prj.name.toUpperCase()
+                prj.name.uppercase()
             }
             prj.pluginManager.let { when {
                 it.hasPlugin("org.jetbrains.kotlin.jvm") -> {

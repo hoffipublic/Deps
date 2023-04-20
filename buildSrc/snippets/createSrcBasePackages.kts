@@ -5,8 +5,8 @@
  * //=============
  * group = "com.hoffi"
  * version = "1.0-SNAPSHOT"
- * val artifactName by extra { "${rootProject.name.toLowerCase()}-${project.name.toLowerCase()}" }
- * val rootPackage by extra { "${rootProject.group}.${rootProject.name.replace("[-_]".toRegex(), "").toLowerCase()}" }
+ * val artifactName by extra { "${rootProject.name.lowercase()}-${project.name.lowercase()}" }
+ * val rootPackage by extra { "${rootProject.group}.${rootProject.name.replace("[-_]".toRegex(), "").lowercase()}" }
  * val theMainClass by extra { "Main" }
  * application {
  *     mainClass.set("${rootPackage}.${theMainClass}" + "Kt") // + "Kt" if fun main is outside a class
@@ -16,9 +16,9 @@
  * //=============
  * group = "${rootProject.group}"
  * version = "${rootProject.version}"
- * val artifactName by extra { "${rootProject.name.toLowerCase()}-${project.name.toLowerCase()}" }
+ * val artifactName by extra { "${rootProject.name.lowercase()}-${project.name.lowercase()}" }
  * val rootPackage: String by rootProject.extra
- * val projectPackage by extra { "${rootPackage}.${project.name.toLowerCase()}" }
+ * val projectPackage by extra { "${rootPackage}.${project.name.lowercase()}" }
  * val theMainClass by extra { "Main" }
  * application {
  *     mainClass.set("${projectPackage}.${theMainClass}" + "Kt") // + "Kt" if fun main is outside a class
