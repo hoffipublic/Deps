@@ -1,13 +1,13 @@
 rootProject.name = "Deps"
 
-//pluginManagement {
-//    repositories {
-//        gradlePluginPortal()
-//        mavenCentral()
-//        google()
-//        maven(url="https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev/")
-//    }
-//}
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+        google()
+        maven(url="https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev/")
+    }
+}
 //
 //// in your build.gradle.kts
 ////     composeOptions {

@@ -21,13 +21,13 @@ fun String.depVersionOnly() = DepVersions.versionOnly(this)
 object DepVersions {
     val USED = sortedMapOf<String, MutableSet<Dep>>().toMutableMap()
     val vMap = hashMapOf<String, Dep>(
-        Dep.from("org.antlr:antlr4:4.12.0", GROUP_APACHE),
+        Dep.from("org.antlr:antlr4:4.13.0", GROUP_APACHE),
         Dep.from("org.apache.poi:poi:5.2.3", GROUP_APACHE),
         Dep.from("org.apache.poi:poi-ooxml:5.2.3", GROUP_APACHE),
 
         Dep.from("io.arrow-kt:arrow-core:1.2.0-RC", GROUP_CORE),
         Dep.from("org.kodein.di:kodein-di:7.20.1", GROUP_CORE),
-        Dep.from("io.insert-koin:koin-core:3.4.0", GROUP_CORE),
+        Dep.from("io.insert-koin:koin-core:3.4.1", GROUP_CORE),
 
         Dep.from("com.bkahlert.koodies:koodies:1.9.7", GROUP_CONSOLE),
         Dep.from("com.github.ajalt.clikt:clikt:3.5.2", GROUP_CONSOLE),
@@ -39,9 +39,9 @@ object DepVersions {
         // __LATEST_COMPOSE_RELEASE_VERSION__ https://github.com/JetBrains/compose-jb/releases
         Dep.from("org.jetbrains.compose:compose-gradle-plugin:${BuildSrcGlobal.Compose.composePluginVersion}", GROUP_JETBRAINS, repo = JETBRAINSREPO),
         Dep.from("org.jetbrains.exposed:exposed-core:0.41.1", GROUP_JETBRAINS),
-        Dep.from("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4", GROUP_JETBRAINS),
+        Dep.from("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1", GROUP_JETBRAINS),
         Dep.from("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0", GROUP_JETBRAINS),
-        Dep.from("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0-RC", GROUP_JETBRAINS),
+        Dep.from("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1", GROUP_JETBRAINS),
 
         Dep.from("org.slf4j:slf4j-api:2.0.7", GROUP_LOGGING),
         Dep.from("ch.qos.logback:logback-classic:1.4.7", GROUP_LOGGING),
@@ -50,40 +50,39 @@ object DepVersions {
 
         Dep.from("com.benasher44:uuid:0.7.0", GROUP_MPP),
 
-        Dep.from("com.charleskorn.kaml:kaml:0.53.0", GROUP_SERIALIZATION),
+        Dep.from("com.charleskorn.kaml:kaml:0.54.0", GROUP_SERIALIZATION),
         Dep.from("net.mamoe.yamlkt:yamlkt:0.13.0", GROUP_SERIALIZATION),
-        Dep.from("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0", GROUP_SERIALIZATION),
         Dep.from("org.yaml:snakeyaml:2.0", GROUP_SERIALIZATION),
 
-        Dep.from("com.squareup:kotlinpoet:1.13.1", GROUP_SQUAREUP),
+        Dep.from("com.squareup:kotlinpoet:1.14.2", GROUP_SQUAREUP),
         Dep.from("com.squareup.okhttp3:okhttp:4.11.0", GROUP_SQUAREUP),
-        Dep.from("com.squareup.moshi:moshi-kotlin:1.14.0", GROUP_SQUAREUP),
+        Dep.from("com.squareup.moshi:moshi-kotlin:1.15.0", GROUP_SQUAREUP),
         Dep.from("com.squareup.okio:okio:3.3.0", GROUP_SQUAREUP),
         Dep.from("com.squareup.retrofit2:retrofit:2.9.0", GROUP_SQUAREUP),
         Dep.from("com.squareup.sqldelight:gradle-plugin:2.0.0-alpha05", GROUP_SQUAREUP),
         Dep.from("com.squareup.sqldelight:android-driver:2.0.0-alpha05", GROUP_SQUAREUP),
         Dep.from("com.squareup.sqldelight:native-driver:2.0.0-alpha05", GROUP_SQUAREUP),
-        Dep.from("com.squareup.sqldelight:sqlite-driver:2.0.0-alpha05", GROUP_SQUAREUP),
+        Dep.from("com.squareup.sqldelight:sqlite-driver:2.0.0-rc01", GROUP_SQUAREUP),
 
         Dep.from("org.junit.jupiter:junit-jupiter-api:5.9.3", GROUP_TESTING),
         Dep.from("org.junit.jupiter:junit-jupiter-engine:5.9.3", GROUP_TESTING),
         Dep.from("org.jetbrains.kotlin:kotlin-test-common:${BuildSrcGlobal.VersionKotlin}"),
         Dep.from("org.jetbrains.kotlin:kotlin-test-junit:${BuildSrcGlobal.VersionKotlin}"),
         Dep.from("org.jetbrains.kotlin:kotlin-test-annotations-common:${BuildSrcGlobal.VersionKotlin}"),
-        Dep.from("io.kotest:kotest-runner-junit5:5.6.1", GROUP_TESTING),
+        Dep.from("io.kotest:kotest-runner-junit5:5.6.2", GROUP_TESTING),
         Dep.from("io.kotest.extensions:kotest-extensions-koin:1.1.0", GROUP_TESTING),
         Dep.from("org.hamcrest:hamcrest-library:2.2", GROUP_TESTING),
 
         Dep.from("com.rabbitmq:amqp-client:5.17.0", GROUP_WEB),
-        Dep.from("io.github.hakky54:sslcontext-kickstart:7.4.11", GROUP_WEB),
+        Dep.from("io.github.hakky54:sslcontext-kickstart:8.0.0", GROUP_WEB),
         Dep.from("io.github.resilience4j:resilience4j-core:2.0.2", GROUP_WEB),
-        Dep.from("io.ktor:ktor-server-core:2.3.0", GROUP_WEB),
-        Dep.from("io.ktor:ktor-client-core:2.3.0", GROUP_WEB),
+        Dep.from("io.ktor:ktor-server-core:2.3.1", GROUP_WEB),
+        Dep.from("io.ktor:ktor-client-core:2.3.1", GROUP_WEB),
         Dep.from("org.jsoup:jsoup:1.16.1", GROUP_WEB),
 
         Dep.from("androidx.appcompat:appcompat:1.6.1", GROUP_COMPOSE, repo = GOOGLEREPO),
-        Dep.from("androidx.core:core-ktx:1.10.0", GROUP_COMPOSE, repo = GOOGLEREPO),
-        Dep.from("androidx.activity:activity-compose:1.7.1", GROUP_COMPOSE, repo = GOOGLEREPO),
+        Dep.from("androidx.core:core-ktx:1.10.1", GROUP_COMPOSE, repo = GOOGLEREPO),
+        Dep.from("androidx.activity:activity-compose:1.7.2", GROUP_COMPOSE, repo = GOOGLEREPO),
     )
     fun v(groupAndArtifact: String): String {
         val dep = vMap[groupAndArtifact] ?: throw GradleException("unknown dependency version (not in 'buildSrc/src/main/kotlin/DepVersions.kt'): \"$groupAndArtifact\"")
@@ -106,9 +105,9 @@ fun String.pluginVersion() = DepVersionPlugins.v(this)
 object DepVersionPlugins {
     val USED = mutableSetOf<DepPlugin>()
     val vSet = setOf<DepPlugin>(
-        DepPlugin("micronaut", "io.micronaut.application", version = "3.7.8"),
+        DepPlugin("micronaut", "io.micronaut.application", version = "3.7.9"),
         DepPlugin("shadow", "com.github.johnrengelman.shadow", version = "8.1.1"),
-        DepPlugin("android", "com.android.library", version = "8.0.1", interactiveUrl = "https://maven.google.com/web/index.html#"),
+        DepPlugin("android", "com.android.library", version = "8.0.2", interactiveUrl = "https://maven.google.com/web/index.html#"),
     )
     fun v(pluginName: String): String {
         val pluginDep = vSet.firstOrNull { it.name == pluginName } ?: throw GradleException("unknown plugin (not in 'buildSrc/src/main/kotlin/DepVersions.kt'): \"$pluginName\" not in (${DepVersionPlugins.vSet.map { it.name }.joinToString()})")
