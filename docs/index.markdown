@@ -5,7 +5,7 @@ subtitle: The Home page
 menubar: example_menu
 show_sidebar: true
 toc: true
-hero_image: {{ site.baseurl }}/assets/img/Chassis.jpg
+hero_image: /Deps/assets/img/Chassis.jpg
 ---
 # docs for project Deps
 
