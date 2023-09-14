@@ -1,3 +1,6 @@
+---
+layout: page
+---
 # docs for project Deps
 
 [subpage1](subpage1.md)
