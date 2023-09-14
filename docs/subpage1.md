@@ -6,7 +6,7 @@ description: This is the meta description for this page and will help it appear 
 menubar: example_menu
 menubar_toc: true
 show_sidebar: false
-hero_image: /assets/img/Chassis.jpg
+hero_image: /Deps/assets/img/Chassis.jpg
 ---
 # subpage1
 
