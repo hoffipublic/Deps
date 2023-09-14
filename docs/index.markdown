@@ -14,8 +14,8 @@ some introducing text.
 ## level 2
 
 [comment]: # https://jekyllrb.com/docs/liquid/tags/#links
-- [subpage1]({% link {{ site.baseurl }}subpage1.md %})
-- [subpage2]({% link {{ site.baseurl }}subpage2.md %})
+- [subpage1]({% link subpage1.md %})
+- [subpage2]({% link subpage2.md %})
 
 ### level 3
 
